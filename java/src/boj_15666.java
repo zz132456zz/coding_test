@@ -1,15 +1,15 @@
-// 백준 15663 - N과 M (9)
+// 백준 15666 - N과 M (12)
 
 import java.util.*;
 
-public class boj_15663 {
+public class boj_15666 {
 
     private static int N;
     private static int M;
     private static int[] data;
     private static LinkedHashSet<String> strlist = new LinkedHashSet<>();
 
-    private static void dfs(List<Integer> arr, boolean[] visited, int depth) {
+    public static void dfs(int now, List<Integer> arr, int depth) {
         if (depth == M) {
             String str = arr.toString().replaceAll("[\\[\\]]","").replaceAll("[,]","");
             strlist.add(str);
@@ -17,11 +17,9 @@ public class boj_15663 {
         }
 
         for (int i = 0; i < N; i++) {
-            if (!visited[i]) {
-                visited[i] = true;
+            if (now <= data[i]) {
                 arr.add(data[i]);
-                dfs(arr, visited, depth + 1);
-                visited[i] = false;
+                dfs(data[i], arr, depth + 1);
                 arr.remove(arr.size() - 1);
             }
         }
@@ -29,18 +27,17 @@ public class boj_15663 {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
         N = scanner.nextInt();
         M = scanner.nextInt();
         data = new int[N];
         for (int i = 0; i < N; i++) {
             data[i] = scanner.nextInt();
         }
+
         Arrays.sort(data);
 
         List<Integer> arr = new ArrayList<>();
-        boolean[] visited = new boolean[N];
-        dfs(arr, visited, 0);
+        dfs(-1, arr, 0);
 
         for (String str : strlist) {
             System.out.println(str);
