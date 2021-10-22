@@ -3,19 +3,19 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-class Node {
-    char now;
-    Node left;
-    Node right;
-
-    public Node(char now) {
-        this.now = now;
-    }
-}
-
 public class boj_1991 {
 
     static ArrayList<Node> arr;
+
+    static class Node {
+        char now;
+        Node left;
+        Node right;
+
+        public Node(char now) {
+            this.now = now;
+        }
+    }
 
     public static void preOrder(char now) {
         if (now != '.') {
