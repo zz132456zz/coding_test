@@ -1,3 +1,5 @@
+// 백준 1152 - 단어의 개수
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
