@@ -20,7 +20,7 @@ public class boj_3040 {
         }
 
         finish : for (int i = 0; i < 8; i++) {
-            for (int j = i; j < 9; j++) {
+            for (int j = i + 1; j < 9; j++) {
                 if (data[i] + data[j] == remain) {
                     for (int k = 0; k < 9; k++) {
                         if (k != i && k != j) {
